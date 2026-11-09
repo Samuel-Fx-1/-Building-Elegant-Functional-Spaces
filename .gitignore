@@ -1,0 +1,17 @@
+node_modules/
+.env
+.env.*
+npm-debug.log*
+*.log
+
+# Generated QA output and reference captures
+data/clone/
+data/sections/
+data/theme/
+data/raw/
+data/screens/
+data/*.png
+data/*.json
+data/*.txt
+data-inspect.txt
+data-project.txt

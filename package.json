@@ -1,0 +1,28 @@
+{
+  "name": "alex-smith-architect-portfolio",
+  "version": "1.0.0",
+  "description": "A Node.js + Express clone of the Alex Smith architect portfolio CMS template.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "express",
+    "ejs",
+    "portfolio",
+    "architecture",
+    "template-clone"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "ejs": "^7.0.2",
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "puppeteer-core": "^25.16.0"
+  }
+}
