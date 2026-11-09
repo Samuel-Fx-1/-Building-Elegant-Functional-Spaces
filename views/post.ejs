@@ -1,0 +1,66 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <%- include("partials/inner-hero", { title: "Blog Details" }) %>
+
+  <article class="section section--white post-article">
+    <div class="container">
+      <header class="post-header" data-reveal>
+        <h1><%= post.title %></h1>
+        <p class="post-meta">
+          <span>Created By : <strong><%= post.author %></strong></span>
+          <span>Published By : <strong><%= post.published %></strong></span>
+        </p>
+      </header>
+
+      <img
+        class="post-article__image"
+        src="<%= post.image %>"
+        alt="<%= post.title %>"
+        width="1140"
+        height="630"
+        data-reveal
+      >
+
+      <div class="prose" data-reveal>
+        <h2>Introduction</h2>
+        <% post.intro.forEach((paragraph) => { %>
+          <p><%= paragraph %></p>
+        <% }) %>
+
+        <h2>Description</h2>
+        <% post.description.forEach((paragraph) => { %>
+          <p><%= paragraph %></p>
+        <% }) %>
+
+        <blockquote class="post-quote">
+          <p><%= post.quote %></p>
+          <cite><%= post.quoteAuthor %></cite>
+        </blockquote>
+
+        <p><%= post.intro[0] %></p>
+        <p><%= post.intro[1] %></p>
+      </div>
+    </div>
+  </article>
+
+  <section class="section section--white related-posts" aria-labelledby="related-posts-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 id="related-posts-title">Explore Insights, News &amp; Property Trends</h2>
+        <p>Transform modern living with smart, functional, and future-ready real estate design.</p>
+      </div>
+
+      <div class="blog-grid">
+        <% relatedPosts.forEach((relatedPost) => { %>
+          <%- include("partials/blog-card", { post: relatedPost }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>

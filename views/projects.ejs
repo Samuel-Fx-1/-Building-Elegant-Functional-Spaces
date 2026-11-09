@@ -1,0 +1,26 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <%- include("partials/inner-hero", { title: "My Projects" }) %>
+
+  <section class="section section--dark projects-page" aria-labelledby="projects-page-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 id="projects-page-title">Check Out What I Do—Cool Projects, Awesome Results!</h2>
+        <p>Discover my featured projects—creative web designs and solutions built for impact and user experience.</p>
+      </div>
+
+      <div class="projects-grid">
+        <% projects.forEach((project) => { %>
+          <%- include("partials/project-card", { project }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include("partials/testimonials") %>
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,98 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <%- include("partials/inner-hero", { title: "Contact Me" }) %>
+
+  <section class="section section--beige contact-page" aria-labelledby="contact-title">
+    <div class="container contact-page__grid">
+      <div class="contact-page__media" data-reveal>
+        <img src="/images/Contact-Dj2Ne.png" alt="Portrait of Alex Smith" width="654" height="786" loading="lazy">
+      </div>
+
+      <div class="contact-page__content" data-reveal style="--reveal-delay: 100ms">
+        <h2 id="contact-title">Let's Work Together</h2>
+        <p class="contact-page__intro">Let’s build something impactful together—whether it’s your brand, your website, or your next big idea.</p>
+
+        <% if (sent) { %>
+          <div class="form-alert form-alert--success" role="status">
+            Thanks! Your message has been sent. I’ll get back to you soon.
+          </div>
+        <% } %>
+
+        <% if (Object.keys(errors).length > 0) { %>
+          <div class="form-alert form-alert--error" role="alert">
+            Please fix the highlighted fields below.
+          </div>
+        <% } %>
+
+        <form class="contact-form" method="post" action="/contact">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Jhon Doe"
+              autocomplete="name"
+              value="<%= form.name %>"
+              maxlength="120"
+              required
+              <%= errors.name ? 'aria-invalid="true" aria-describedby="name-error"' : '' %>
+            >
+            <% if (errors.name) { %><p class="form-error" id="name-error"><%= errors.name %></p><% } %>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="jhondoe@email.com"
+              autocomplete="email"
+              value="<%= form.email %>"
+              maxlength="160"
+              required
+              <%= errors.email ? 'aria-invalid="true" aria-describedby="email-error"' : '' %>
+            >
+            <% if (errors.email) { %><p class="form-error" id="email-error"><%= errors.email %></p><% } %>
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="+880 0000 000 000"
+              autocomplete="tel"
+              value="<%= form.phone %>"
+              maxlength="40"
+            >
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              placeholder="Write your message..."
+              maxlength="5000"
+              required
+              <%= errors.message ? 'aria-invalid="true" aria-describedby="message-error"' : '' %>
+            ><%= form.message %></textarea>
+            <% if (errors.message) { %><p class="form-error" id="message-error"><%= errors.message %></p><% } %>
+          </div>
+
+          <button class="btn btn--block" type="submit">Submit Now</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>

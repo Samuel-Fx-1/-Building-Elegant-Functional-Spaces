@@ -1,0 +1,62 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="/" aria-label="Alex Smith — home">
+          <img src="/images/Logo-UpMrd.svg" alt="Alex Smith" width="140" height="32" loading="lazy">
+        </a>
+        <p>Creating architecture and interiors that balance functionality, emotion, and timeless aesthetics.</p>
+
+        <p class="site-footer__social-label">Social</p>
+        <ul class="social-list">
+          <% site.social.forEach((social) => { %>
+            <li>
+              <a href="<%= social.href %>" target="_blank" rel="noopener noreferrer" aria-label="<%= social.name %>">
+                <%- include("social-icon", { icon: social.icon }) %>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <% navLinks.slice(0, 5).forEach((link) => { %>
+            <li><a href="<%= link.href %>"><%= link.label %></a></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Services Links</h3>
+        <ul class="footer-links">
+          <% serviceLinks.forEach((label) => { %>
+            <li><a href="/services"><%= label %></a></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div class="site-footer__col site-footer__contact">
+        <h3>Contact Info.</h3>
+        <ul class="footer-links">
+          <li><a href="mailto:<%= site.email %>"><%= site.email %></a></li>
+          <li><a href="tel:+18801000000000"><%= site.phone %></a></li>
+          <li><address><%= site.address %></address></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>Copyright©2026 Alex. All Rights Reserved.</p>
+      <div class="site-footer__legal">
+        <span>Privacy Policy</span>
+        <span>Terms and Conditions</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js" defer></script>
+</body>
+</html>

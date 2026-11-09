@@ -1,0 +1,35 @@
+<section class="section section--dark newsletter" id="newsletter" aria-labelledby="newsletter-title">
+  <div class="container">
+    <div class="newsletter__head" data-reveal>
+      <h2 id="newsletter-title">Join My Newsletter!</h2>
+      <p>Get up to 10% off your first consultation — exclusive offers straight to your inbox.</p>
+    </div>
+
+    <img
+      class="newsletter__image"
+      src="/images/JoinMyNewsletter-brOUZ.png"
+      alt="Modern concrete house illuminated at dusk"
+      width="1620"
+      height="620"
+      loading="lazy"
+      data-reveal
+    >
+
+    <form class="newsletter__form" method="post" action="/newsletter" data-newsletter-form>
+      <label class="sr-only" for="newsletter-email">Email address</label>
+      <input
+        id="newsletter-email"
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="email"
+        required
+      >
+      <button class="btn" type="submit">Subscribe Now</button>
+    </form>
+
+    <p class="newsletter__status<%= query && query.subscribed === '1' ? ' is-visible' : '' %>" role="status" aria-live="polite" data-newsletter-status>
+      <% if (query && query.subscribed === '1') { %>You're on the list! Check your inbox for a welcome note.<% } %>
+    </p>
+  </div>
+</section>

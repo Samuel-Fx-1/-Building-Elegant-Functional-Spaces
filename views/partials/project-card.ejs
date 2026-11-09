@@ -1,0 +1,15 @@
+<article class="project-card" data-reveal>
+  <a class="project-card__media" href="/projects/<%= project.slug %>" tabindex="-1" aria-hidden="true">
+    <img src="<%= project.image %>" alt="" width="537" height="290" loading="lazy">
+  </a>
+  <div class="project-card__body">
+    <h3 class="project-card__title">
+      <a href="/projects/<%= project.slug %>"><%= project.name %></a>
+    </h3>
+    <p class="project-card__text"><%= project.excerpt %></p>
+    <a class="btn" href="/projects/<%= project.slug %>">
+      View Projects
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+    </a>
+  </div>
+</article>

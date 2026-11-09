@@ -1,0 +1,25 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <%- include("partials/inner-hero", { title: "Blogs" }) %>
+
+  <section class="section section--white blog-page" aria-labelledby="blog-page-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 id="blog-page-title">Explore Insights, News &amp; Property Trends</h2>
+        <p>Transform modern living with smart, functional, and future-ready real estate design.</p>
+      </div>
+
+      <div class="blog-grid">
+        <% posts.forEach((post) => { %>
+          <%- include("partials/blog-card", { post }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>

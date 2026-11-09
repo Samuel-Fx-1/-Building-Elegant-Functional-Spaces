@@ -1,0 +1,57 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <%- include("partials/inner-hero", { title: "About" }) %>
+
+  <%- include("partials/about-studio") %>
+  <%- include("partials/features") %>
+
+  <section class="section section--dark awards" aria-labelledby="awards-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 id="awards-title">Awards and Industry Honors</h2>
+        <p>Innovative residential projects to groundbreaking commercial developments, we are proud to be honored for our dedication to design, craftsmanship, and sustainability.</p>
+      </div>
+
+      <div class="awards-list">
+        <% awards.forEach((award, index) => { %>
+          <article class="award-row" data-reveal style="--reveal-delay: <%= index * 80 %>ms">
+            <div class="award-row__media">
+              <img src="<%= award.image %>" alt="<%= award.title %> trophy" width="270" height="210" loading="lazy">
+            </div>
+            <p class="award-row__number"><%= award.number %></p>
+            <h3 class="award-row__title"><%= award.title %></h3>
+            <p class="award-row__year"><%= award.year %></p>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--beige process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <h2 id="process-title">Design Process</h2>
+        <p>I transform ideas into strategic architectural concepts through sketches and spatial planning.</p>
+      </div>
+
+      <div class="process-grid">
+        <% process.forEach((step, index) => { %>
+          <article class="process-step" data-reveal style="--reveal-delay: <%= index * 80 %>ms">
+            <p class="process-step__number"><%= step.number %></p>
+            <h3 class="process-step__title"><%= step.title %></h3>
+            <p class="process-step__text"><%= step.text %></p>
+          </article>
+        <% }) %>
+      </div>
+
+      <img class="process-image" src="/images/DesignProcess-txWoK.png" alt="Modern wood and glass house designed by Alex Smith" width="1620" height="653" loading="lazy" data-reveal>
+    </div>
+  </section>
+
+  <%- include("partials/testimonials") %>
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>

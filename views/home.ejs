@@ -1,0 +1,123 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero__inner">
+      <div class="hero__content" data-reveal>
+        <p class="hero__eyebrow"><%= site.hero.eyebrow %></p>
+        <h1 id="hero-title">Building <span class="accent">Elegant</span> &amp; <span class="accent">Functional</span> Spaces</h1>
+        <p class="hero__text"><%= site.hero.text %></p>
+        <a class="btn" href="/projects">
+          View Projects
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <img class="hero__person" src="<%= site.hero.person %>" alt="Alex Smith holding architectural blueprints" width="789" height="979">
+  </section>
+
+  <%- include("partials/features") %>
+  <%- include("partials/about-studio") %>
+
+  <section class="section section--beige services-preview" aria-labelledby="services-preview-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 id="services-preview-title">Architecture &amp; Design Solutions</h2>
+        <p>From concept to completion, we craft unique, functional, and aesthetic spaces, blending creativity, innovation, precision to transform every corner into timeless interior masterpieces</p>
+      </div>
+
+      <div class="service-list">
+        <% services.slice(0, 3).forEach((service, index) => { %>
+          <article class="service-row<%= index % 2 === 1 ? ' service-row--reverse' : '' %>" data-reveal>
+            <div class="service-row__media">
+              <img src="<%= service.image %>" alt="<%= service.title %>" width="537" height="355" loading="lazy">
+            </div>
+            <div class="service-row__content">
+              <img class="service-row__number" src="<%= service.number %>" alt="" width="47" height="41" loading="lazy">
+              <h3 class="service-row__title"><%= service.title %></h3>
+              <p class="service-row__text"><%= service.text %></p>
+              <a class="btn" href="/services">
+                Learn More
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+              </a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark projects-section" aria-labelledby="projects-title">
+    <div class="container">
+      <div class="section-head section-head--split" data-reveal>
+        <div class="section-head__copy">
+          <h2 id="projects-title">Check Out What I Do—Cool Projects, Awesome Results!</h2>
+          <p>Discover my featured projects—creative web designs and solutions built for impact and user experience.</p>
+        </div>
+        <div class="section-head__action">
+          <a class="btn" href="/projects">
+            Explore All Projects
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <% featuredProjects.forEach((project) => { %>
+          <%- include("partials/project-card", { project }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--beige process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <h2 id="process-title">Design Process</h2>
+        <p>I transform ideas into strategic architectural concepts through sketches and spatial planning.</p>
+      </div>
+
+      <div class="process-grid">
+        <% process.forEach((step, index) => { %>
+          <article class="process-step" data-reveal style="--reveal-delay: <%= index * 80 %>ms">
+            <p class="process-step__number"><%= step.number %></p>
+            <h3 class="process-step__title"><%= step.title %></h3>
+            <p class="process-step__text"><%= step.text %></p>
+          </article>
+        <% }) %>
+      </div>
+
+      <img class="process-image" src="/images/DesignProcess-txWoK.png" alt="Modern wood and glass house designed by Alex Smith" width="1620" height="653" loading="lazy" data-reveal>
+    </div>
+  </section>
+
+  <%- include("partials/testimonials") %>
+
+  <section class="section section--white blog-section" aria-labelledby="blog-preview-title">
+    <div class="container">
+      <div class="section-head section-head--split" data-reveal>
+        <div class="section-head__copy">
+          <h2 id="blog-preview-title">Explore Insights, News &amp; Property Trends</h2>
+          <p>Transform modern living with smart, functional, and future-ready real estate design.</p>
+        </div>
+        <div class="section-head__action">
+          <a class="btn" href="/blog">
+            View All Blogs
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="blog-grid">
+        <% latestPosts.forEach((post) => { %>
+          <%- include("partials/blog-card", { post }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>

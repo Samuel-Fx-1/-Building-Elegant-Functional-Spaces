@@ -1,0 +1,13 @@
+<section class="section section--features" aria-label="What I bring to every project">
+  <div class="container">
+    <div class="features-grid">
+      <% features.forEach((feature, index) => { %>
+        <article class="feature" data-reveal style="--reveal-delay: <%= index * 80 %>ms">
+          <img class="feature__icon" src="<%= feature.icon %>" alt="" width="60" height="60" loading="lazy">
+          <h3 class="feature__title"><%= feature.title %></h3>
+          <p class="feature__text"><%= feature.text %></p>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>

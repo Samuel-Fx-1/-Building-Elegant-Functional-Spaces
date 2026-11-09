@@ -1,0 +1,60 @@
+<%- include("partials/head") %>
+<%- include("partials/nav") %>
+
+<main id="main-content">
+  <%- include("partials/inner-hero", { title: "Project Details" }) %>
+
+  <section class="project-title-block" aria-labelledby="project-title">
+    <div class="container" data-reveal>
+      <h1 id="project-title"><%= project.name %></h1>
+      <p class="project-meta">
+        <span class="project-meta__label">Status:</span>
+        <strong><%= project.status %></strong>
+        <span class="project-meta__separator" aria-hidden="true">|</span>
+        <span class="project-meta__label">Price:</span>
+        <strong><%= project.price %></strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--white project-article" aria-label="Project description">
+    <div class="container">
+      <img
+        class="project-article__image"
+        src="<%= project.image %>"
+        alt="<%= project.name %>"
+        width="1140"
+        height="630"
+        data-reveal
+      >
+
+      <div class="prose" data-reveal>
+        <p><%= project.intro %></p>
+        <h2>Project Description</h2>
+        <% project.description.forEach((paragraph) => { %>
+          <p><%= paragraph %></p>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark related-projects" aria-labelledby="related-projects-title">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <h2 id="related-projects-title">Check Out What I Do—Cool Projects, Awesome Results!</h2>
+        <p>Discover my featured projects—creative web designs and solutions built for impact and user experience.</p>
+      </div>
+
+      <div class="projects-grid">
+        <% relatedProjects.forEach((relatedProject) => { %>
+          <%- include("partials/project-card", { project: relatedProject }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <%- include("partials/testimonials") %>
+  <%- include("partials/newsletter") %>
+</main>
+
+<%- include("partials/footer") %>
